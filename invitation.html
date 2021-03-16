@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Invitation Page</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+
+<body>
+    <header> /*Navigational setup for each page of the form*/
+        <div class="top">
+            <a class="logo" href="index.html">CapellaVolunteers<span class="dotcom">.org</span></a>
+        </div>
+        <nav>
+            <ul class="topnav">
+                <li><a href="index.html">Home</a>
+                </li>
+                <li><a href="invitation.html" class="active">Invitation</a>
+              &ensp;  </li>
+                <li><a href="gallery.html">Gallery</a>
+                </li>
+                <li><a href="registration.html">Registration</a>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+    <section id="pageForm">	
+				/*Below is a page form designed to capture event details for the recipients*/
+        <form action="#">
+            <label for="recipientName">Recipient name: </label>
+            <input type="text" name="recipientNameName" id = "recipientName"  placeholder="Enter your Recipient Name" />
+ <br>
+            <label for="organizationName">Organization name: 
+            </label>
+            <input type="text" name="organizationName" id = "organizationName" placeholder="Enter your Organization Name" />
+ <br>
+            <label for="eventDate">Event Date:
+            </label>
+            <input type="text" name="eventDate" id = "eventDate" placeholder="Enter your Event Date" />
+ <br>
+            <label for="websiteURL">URL:
+            </label>
+            <input type="text" name="websiteURL" id = "websiteURL"  placeholder="Enter your Website URL" />
+ <br>
+            <label for="hostName">Host name:
+            </label>
+            <input type="text" name="hostName" id = "hostName" placeholder="Host Name" />
+ <br>
+            <button type="button" id = "Submit" onclick ="MyFunction()"> Submit</button> 
+			
+        </form>
+		<script> /*The function below captures data from the page form section and stores the values into numerous variables*/
+				function MyFunction() {
+					var rName = document.getElementById("recipientName").value;
+					var oName = document.getElementById("organizationName").value;
+					var eDate = document.getElementById("eventDate").value;
+					var wURL  = document.getElementById("websiteURL").value;
+					var hName = document.getElementById("hostName").value;
+					var output = "Hello ";
+					output += rName;
+					output += "<br>" ;
+					output += "You have been invited to volunteer for an event held by ";
+					output += oName;
+					output += " on " 
+					output += eDate;
+					output +=". Please come to the following website: ";
+					output += wURL;
+					output += " to sign up as a volunteer.";
+					output += "<br>";
+					output += "Thanks!" 
+					output += "<br>";
+					output += "<br>";
+					output += hName ;
+                   document.getElementById("demo").innerHTML = output;
+}
+		</script>
+	
+    <article id="placeholderContent">
+
+		<p id="demo"></p>
+
+    </article>
+    <footer>This events site is for IT-FP3215 tasks.
+    </footer>
+
+    </section>
+
+
+</body>
+
+</html>
