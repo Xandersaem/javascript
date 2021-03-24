@@ -25,10 +25,17 @@
 
         </nav>
     </header>
-    <section id="pageForm">	<!-- Below is a page form designed to capture event details for the recipients -->
+    <section id="pageForm"> <!-- Below is a page form designed to capture event details for the recipients -->
         <form action="#">
-            <label for="recipientName">Recipient name: </label>
-            <input type="text" name="recipientNameName" id = "recipientName"  placeholder="Enter your Recipient Name" />
+		    <label for="inputNameNum"> Number of Recipient(s): </label>
+            <input type="number" name="inputNameNum" id = "inputNameNum"  placeholder="Number 1- 10" /> 
+			<button type="button" id = "SubmitNum" onclick ="myArray()"> Go</button> 
+			
+			<div id="recipientDisplay"> </div> <!-- For testing Update: it works -->
+ <br>		
+    <!--        <label for="recipientName">Recipient name:  <br></label>
+			<input type="text" name="recipientName" id="recipientName" placeholder="Your name goes here" />
+    -->
  <br>
             <label for="organizationName">Organization name: 
             </label>
@@ -49,16 +56,52 @@
             <button type="button" id = "Submit" onclick ="MyFunction()"> Submit</button> 
 			
         </form>
-		<script> /*The function below captures data from the page form section and stores the values into numerous variables*/
+		<script>
+				var namesA = [];
+				var Boxes = []; 
+				
+				function myArray() {   // creates box and load them to screen 
+				var inputNum = document.getElementById("inputNameNum").value;
+				if (inputNum < 1)
+						inputNum = 1;
+				if (inputNum > 10)
+						inputNum = 10;
+				// console.log(inputNum); //Debug
+				
+				for (i = 0; i < inputNum; i++)
+				{ 
+				  // console.log("I got into the for loop"); //Debug
+				  var valueString = "Recipient: " + (i+1) ;
+				  var idString =  "R" + (i+1);
+				  Boxes[i] = document.createElement("INPUT");
+				  Boxes[i].setAttribute("type", "text");
+				  Boxes[i].setAttribute("placeholder", valueString );
+				  Boxes[i].setAttribute("id", idString ); // control attributes
+						 
+			     document.getElementById("recipientDisplay").appendChild(Boxes[i]); // loads them to id address
+				 // console.log(Boxes[i]); // Debug
+				
+				}
+				}
+				
 				function MyFunction() {
-					var rName = document.getElementById("recipientName").value;
+				for (i = 0; i < Boxes.length; i++) // create list of names
+				{ 
+				   var idString =  "R" + (i+1);
+				   namesA[i] = document.getElementById(idString).value;
+				}
+				
 					var oName = document.getElementById("organizationName").value;
 					var eDate = document.getElementById("eventDate").value;
 					var wURL  = document.getElementById("websiteURL").value;
-					var hName = document.getElementById("hostName").value;
+					var hName = document.getElementById("hostName").value; // only need these values once (no change)
 					var output = "Hello ";
-					output += rName;
-					output += "<br>";
+				for (i = 0; i < namesA.length; i++)
+				{ 
+				    if (i != 0)
+					output +=  "Hello "; // fix hello problem 
+					output += namesA[i];
+					output += "<br>" ;
 					output += "You have been invited to volunteer for an event held by ";
 					output += oName;
 					output += " on ";
@@ -69,10 +112,11 @@
 					output += "<br>";
 					output += "Thanks!";
 					output += "<br>";
-					output += "<br>";
 					output += hName ;
+					output += "<br><br>";
                    document.getElementById("demo").innerHTML = output;
-}
+				}
+				}
 		</script>
 	
     <article id="placeholderContent">
