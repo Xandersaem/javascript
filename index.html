@@ -27,6 +27,12 @@
     </header>
     <section id="bannerImages">
 	Banner Images<br/>
+	<div class="gallery" title="banners 1-3" style="max-width:300px" style="max-height:200px"> 
+  <img class="mySlides" src="images/banner1.jpg" href="images/banner1.jpg" style="width:100%">
+  <img class="mySlides" src="images/banner2.jpg" href="images/banner2.jpg" style="width:100%">
+  <img class="mySlides" src="images/banner3.jpg" href="images/banner3.jpg" style="width:100%">
+</div>
+<div class="desc">Add a description of the image here</div>
 <img src="images/banner1.jpg" alt="Banner"/>
 <img src="images/banner2.jpg" alt="Banner"/>
 <img src="images/banner3.jpg" alt="Banner"/>
@@ -36,5 +42,22 @@
     <footer>This events site is for IT-FP3215 tasks.
     </footer>
 </body>
+<script>
+var myIndex = 1;
+carousel();
 
+function carousel() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  myIndex++; // rotate
+  if (myIndex > slides.length) {myIndex = 2}  // error bound  
+  slides[myIndex-1].style.display = "block"; 
+  slides[myIndex-2].style.display = "block"; // displays slide
+  setTimeout(carousel, 3000); // Change banner every 3 seconds
+  
+}
+</script>
 </html>
