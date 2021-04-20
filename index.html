@@ -56,8 +56,11 @@ function carousel() {
   if (myIndex > slides.length) {myIndex = 2}  // error bound  
   slides[myIndex-1].style.display = "block"; 
   slides[myIndex-2].style.display = "block"; // displays slide
-  setTimeout(carousel, 3000); // Change banner every 3 seconds
+  RollOver(carousel, 3000); // Change banner every 3 seconds
   
+}
+function RollOver(x, y){// Change banner every y seconds
+ setTimeout(x, y)
 }
 </script>
 </html>
