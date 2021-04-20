@@ -77,10 +77,14 @@ function carousel() {
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";  
   }
+  var time = 3000; 
   myIndex++; // rotate
   if (myIndex > slides.length) {myIndex = 1}  // error bound  
   slides[myIndex-1].style.display = "block";  // displays slide
-  setTimeout(carousel, 3000); // Change banner every 3 seconds
+  RollOver(carousel, 3000); // rollover fuction call 
+}
+function RollOver(x, y){// Change banner every y seconds
+ setTimeout(x, y)
 }
 </script>
     <footer>This events site is for IT-FP3215 tasks.
