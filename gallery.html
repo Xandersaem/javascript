@@ -57,8 +57,12 @@ function RollOver(x, y){// Change banner every y seconds
  setTimeout(x, y)
 }
 
-function ImageRollover(elementId, imageSource){
-	document.getElementById(elementId).src = imageSource;
+function ImageRollover(elementId,imageSource){
+	
+	var id = elementId;
+	var source = imageSource;
+	
+	document.getElementById(id).src = source;
 }
 
 </script>
