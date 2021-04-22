@@ -124,7 +124,7 @@ div.gallery {
     margin: 5px;
     border: 1px solid #ccc;
     float: left;
-    width: 1200px; /* Was 180 */
+    width: 80%; /* Was 1200px */
 }
 
 div.gallery:hover {
