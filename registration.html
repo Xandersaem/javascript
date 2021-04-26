@@ -100,27 +100,27 @@
 			
 					if(!(uName.match(letters))) // check if only letter and  numbers
 					{
-						document.getElementById("uError").innerHTML = "ERROR";
+						document.getElementById("uError").innerHTML = "uERROR";
 						outError = true;
 					}
 					if(password.length < 8) // Check if password longer than 8
 					{
-						document.getElementById("pError").innerHTML = "ERROR";
+						document.getElementById("pError").innerHTML = "pERROR";
 						outError = true;
 					}
 					if(password != vPassword) // check if verification is identical
 					{
-						document.getElementById("vError").innerHTML = "ERROR";
+						document.getElementById("vError").innerHTML = "vERROR";
 						outError = true;
 					}
 					if (!(emailVal.test(email)))// check valid email 
 					{
-						document.getElementById("eError").innerHTML = "ERROR";
+						document.getElementById("eError").innerHTML = "eERROR";
 						outError = true;
 					}
 					if (!(phoneVal.test(pNumber)))// check valid email 
 					{
-						document.getElementById("nError").innerHTML = "ERROR";
+						document.getElementById("nError").innerHTML = "nERROR";
 						outError = true;
 					}
 
@@ -134,7 +134,7 @@
 						// checks checked
 					if ((nLetter != "Yes") && (nLetter != "No"))// error if no box is checked
 					{
-						document.getElementById("rError").innerHTML = "ERROR";
+						document.getElementById("rError").innerHTML = "rERROR";
 						outError = true;
 					}
 					// validates if a box is checked no null 
