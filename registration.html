@@ -56,8 +56,10 @@
 			<a id="nError"></a> 
  <p>
 			<label for="signUpNewsletter">Sign up for newsletter:</label>
-			<input type="radio"  name="signUpNewsletter" value="Yes" >
-			<input type="radio"  name="signUpNewsletter" value="No">
+			<input type="radio" id="Yes" name="signUpNewsletter" value="Yes">
+	 		<labal for="Yes">Yes</label><br>
+			<input type="radio" id="No" name="signUpNewsletter" value="No">
+	 		<labal for="No">No</label><br>
 			<a id="rError"></a> 
  <p>
             <button type="button" id = "Submit" onclick ="MyFunction()"> Next Step  </button> 
@@ -113,12 +115,12 @@
 						document.getElementById("vError").innerHTML = "vERROR";
 						outError = true;
 					}
-					if (!(emailVal.test(email)))// check valid email 
+					if (!(emailVal.test(email)))// check for valid email structure with @ and . in address
 					{
 						document.getElementById("eError").innerHTML = "eERROR";
 						outError = true;
 					}
-					if (!(phoneVal.test(pNumber)))// check valid email 
+					if (!(phoneVal.test(pNumber)))// check for valid phone number in (123)456-7890 format
 					{
 						document.getElementById("nError").innerHTML = "nERROR";
 						outError = true;
