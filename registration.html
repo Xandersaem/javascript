@@ -62,6 +62,9 @@
  <p>
             <button type="button" id = "Submit" onclick ="MyFunction()"> Next Step  </button> 
         </form>
+
+			<p id="demo"></p>
+    </section>
 <script>
 		function MyFunction() {
 
@@ -138,31 +141,28 @@
 					output +=  " "; 
 					output += lName ;
 					output += "<br>" ;
-					output += "Your Username: "
+					output += "Your Username: ";
 					output += uName ;
 					output += "<br>" ;
-					output += "Your Password: "
+					output += "Your Password: ";
 					output += password;
 					output += "<br>" ;
-					output += "Verify against: "
+					output += "Verify against: ";
 					output += vPassword;
 					output += "<br>" ;
 					output += "Email: "
 					output += email ;
 					output += "<br>" ;
-					output += "Phone Number: "
+					output += "Phone Number: ";
 				    output += pNumber ;
 					output += "<br>" ;
-					output += "Newsletter: "
+					output += "Newsletter: ";
 					output += nLetter ;
 				}	
                    document.getElementById("demo").innerHTML = output;
 				
 				}
 		</script>
-			<p id="demo"></p>
-    </section>
-
     <footer>This events site is for IT-FP3215 tasks.
     </footer>
 </body>
