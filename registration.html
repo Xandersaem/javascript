@@ -56,8 +56,8 @@
 			<a id = nError /> 
  <p>
 			<label for="signUpNewsletter">Sign up for newsletter:</label>
-			<input type="radio"  name="signUpNewsletter" value="Yes" > Yes 
-			<input type="radio"  name="signUpNewsletter" value="No"> No
+			<input type="radio"  name="signUpNewsletter" value="Yes" >
+			<input type="radio"  name="signUpNewsletter" value="No">
 			<a id = rError /> 
  <p>
             <button type="button" id = "Submit" onclick ="MyFunction()"> Next Step  </button> 
@@ -73,6 +73,8 @@
 					var phoneVal = /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/ ;
 					var outError = false; 
 					
+					console.log("Resetting errors");
+			
 					document.getElementById("uError").innerHTML = "";
 					document.getElementById("pError").innerHTML = "";
 					document.getElementById("vError").innerHTML = "";
@@ -82,6 +84,8 @@
 					document.getElementById("nError").innerHTML = "";// number error = nError p error take
 					document.getElementById("rError").innerHTML = "";
 					// resets my error 
+			
+					console.log("Errors reset");
 					
 					var uName     = document.getElementById("userName").value;
 					var password  = document.getElementById("password").value;
@@ -92,6 +96,8 @@
 					var pNumber   = document.getElementById("phoneNumber").value;
 					// the fields that change 
 					
+					console.log("Variables recorded");
+			
 					if(!(uName.match(letters))) // check if only letter and  numbers
 					{
 						document.getElementById("uError").innerHTML = "ERROR";
@@ -133,11 +139,10 @@
 					}
 					// validates if a box is checked no null 
 					var output = "Hello ";			
-				if (outError == true)
-					output = "ERROR"; 			
-				else{
-			
-                    output += fName;
+				if (outError == true) {
+					output = "ERROR";
+				}
+				else { 	output += fName;
 					output +=  " "; 
 					output += lName ;
 					output += "<br>" ;
@@ -154,15 +159,14 @@
 					output += email ;
 					output += "<br>" ;
 					output += "Phone Number: ";
-				    output += pNumber ;
+				    	output += pNumber ;
 					output += "<br>" ;
 					output += "Newsletter: ";
 					output += nLetter ;
 				}	
                    document.getElementById("demo").innerHTML = output;
-				
-				}
-		</script>
+		}
+	</script>
     <footer>This events site is for IT-FP3215 tasks.
     </footer>
 </body>
