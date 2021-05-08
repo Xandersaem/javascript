@@ -31,12 +31,58 @@
 			Process content to display content on screen
 			
 			-->
-            
-
+			<div>User ID:
+			<span id="uName"></span>
+			</div>
+			<div>Password:
+			<span id="passID"></span>
+			</div>
+			<div>Firstname:
+			<span id="fName"></span>
+			</div>
+			<div>Lastname:
+			<span id="lName"></span>
+			</div>
+			<div>Email:
+			<span id="userEmail"></span>
+			</div>
+			<div>Phone:
+			<span id="userPhone"></span>
+			</div>
     </section>
 
     <footer>This events site is for IT-FP3215 tasks.
     </footer>
+	<script type="text/javascript">
+		function getCookie(cname) 
+		{
+			var name = cname + "=";
+			var decodedCookie = decodeURIComponent(document.cookie);
+			var ca = decodedCookie.split(';');
+			for (var i = 0; i < ca.length; i++) 
+			{
+				var c = ca[i];
+				while (c.charAt(0) == ' ') 
+				{
+					c = c.substring(1);
+				}
+				
+				if (c.indexOf(name) == 0) 
+				{
+					return c.substring(name.length, c.length);
+				}
+			}
+		return "";
+		}
+
+		document.getElementById("uid").innerHTML = getCookie("uName");
+		document.getElementById("passid").innerHTML = getCookie("passID");
+		document.getElementById("fname").innerHTML = getCookie("fName");
+		document.getElementById("lname").innerHTML = getCookie("lName");
+		document.getElementById("uemail").innerHTML = getCookie("userEmail");
+		document.getElementById("phn").innerHTML = getCookie("userPhone");
+
+	</script>
 </body>
 
 </html>
