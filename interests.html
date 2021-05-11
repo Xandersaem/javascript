@@ -29,7 +29,7 @@
 	<p>A few more questions...
 	
     <section id="pageForm">
-        <form method="#" action="ADD THIS LATER">
+        <form method="#" action="confirm.html">
 			
             <!--
 			Include other form fields here
@@ -53,6 +53,17 @@
 			
 			<input type="checkbox" id="interest3" name="interest3" value="Animals">
 			<label for="interest3"> Animals are my best buds! </label><br>
+			
+			<label for="signUpNewsletter">Sign up for newsletter:</label>
+			<input type="radio"  name="signUpNewsletter" value="Yes" > Yes 
+			<input type="radio"  name="signUpNewsletter" value="No"> No
+			<br>
+			
+			<textarea rows="3" cols="40" name="comment" form="pageForm">
+			Enter text here...</textarea><br>
+			
+			<label for="referSource">Who referred you to us?</label>
+			<input type="text" id="referSource" name="referSource"><br>
 			
             <input type="submit" value="Register">
         </form>
