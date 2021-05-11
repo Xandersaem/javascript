@@ -25,8 +25,11 @@
 
         </nav>
     </header>
+	
+	<p>A few more questions...
+	
     <section id="pageForm">
-        <form action="#">
+        <form method="#" action="ADD THIS LATER">
 			
             <!--
 			Include other form fields here
@@ -39,11 +42,48 @@
             <input type="hidden" name="lastName" />
             <input type="hidden" name="email"/>
             <input type="hidden" name="lastName" />
-		        <input type="hidden" name="signUpNewsletter"/ >
-	
+			<input type="hidden" name="signUpNewsletter"/ >
+			
+			<p>What are you most interested in volunteering for?<br>
+			<input type="checkbox" id="interest1" name="interest1" value="Cooking">
+			<label for="interest1"> I like to cook! </label><br>
+			
+			<input type="checkbox" id="interest2" name="interest2" value="Recycling">
+			<label for="interest2"> Recycling is my calling! </label><br>
+			
+			<input type="checkbox" id="interest3" name="interest3" value="Animals">
+			<label for="interest3"> Animals are my best buds! </label><br>
+			
             <input type="submit" value="Register">
         </form>
     </section>
+
+	<script>
+		/* Function adapted from W3schools.com for cookie functionality */
+		function setCookie(cname, cvalue, exdays) {
+			var d = new Date();
+			d.setTime(d.getTime() + (exdays*24*60*60*1000));
+			var expires = "expires="+ d.toUTCString();
+			document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
+		
+		/* Function adapted from W3Schools.com for cookie functionality */
+		function getCookie(cname) {
+			var name = cname + "=";
+			var decodedCookie = decodeURIComponent(document.cookie);
+			var ca = decodedCookie.split(';');
+			for(var i = 0; i <ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(name) == 0) {
+					return c.substring(name.length, c.length);
+				}
+			}
+			return "";
+		}
+	</script>
 
     <footer>This events site is for IT-FP3215 tasks.
     </footer>
