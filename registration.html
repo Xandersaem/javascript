@@ -4,7 +4,10 @@
 <head>
     <title>Invitation Page</title>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+	
+<!--	
 	<script type = "text/javascript">
+
 	function formValidate()
 	{
 		var uName = document.registration.userName;
@@ -14,6 +17,7 @@
 		var lName = document.registration.lastName;
 		var userEmail = document.registration.email;
 		var userPhone = document.registration.phoneNumber;
+		
 		if(id_validation(uName))
 		{
 			if(passid_validation(passID))
@@ -43,14 +47,6 @@
 			}
 		}
 		return false;
-	}
-	
-	function setCookie(name, value, days)
-	{
-		var n = new Date();
-		n.setTime(n.getTime() + (days * 24*60*60*1000));
-		var end = "expires" + n.toUTCString();
-		document.cookie = name + "=" + value + ";" + end + ";path=/";
 	}
 	
 	function id_validation(id)
@@ -150,6 +146,7 @@
 		}
 	}
 	</script>
+-->
 </head>
 
 <body onload="document.registration.userName.focus();">
