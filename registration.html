@@ -4,155 +4,9 @@
 <head>
     <title>Invitation Page</title>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
-	<script type = "text/javascript">
-	function formValidate()
-	{
-		var uName = document.registration.userName;
-		var passID = document.registration.password;
-		var passVerify = document.registration.passwordVerify;
-		var fName = document.registration.firstName;
-		var lName = document.registration.lastName;
-		var userEmail = document.registration.email;
-		var userPhone = document.registration.phoneNumber;
-		if(id_validation(uName))
-		{
-			if(passid_validation(passID))
-			{
-				if(pass2_validation(passID,passVerify))
-				{
-					if(name_validation(fName))
-					{
-						if(name_validation(lName))
-						{
-							if(email_validation(userEmail))
-							{
-								if(phone_validation(userPhone))
-								{
-									document.forms["registration"].submit();
-									setCookie("uName", uName.value,1);
-									setCookie("passID", passID.value,1);
-									setCookie("fName", fName.value,1);
-									setCookie("lName", lName.value,1);
-									setCookie("userEmail", userEmail.value,1);
-									setCookie("userPhone", userPhone.value,1);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		return false;
-	}
-	
-	function setCookie(name, value, days)
-	{
-		var n = new Date();
-		n.setTime(n.getTime() + (days * 24*60*60*1000));
-		var end = "expires" + n.toUTCString();
-		document.cookie = name + "=" + value + ";" + end + ";path=/";
-	}
-	
-	function id_validation(id)
-	{
-		var id_len = id.value.length;
-		var num = /^[0-9a-zA-Z]+$/;
-		if(id_len==0)
-		{
-			alert("User ID is empty");
-			return false;
-		}
-		
-		else if(id.value.match(num))
-		{
-			return true;
-		}
-		
-		else 
-		{
-			alert("User Id should be alphanumeric");
-			return false;
-		}
-	}
-	
-	function passid_validation(id)
-	{
-		var id_len = id.value.length;
-		if(id_len==0)
-		{
-			alert("Passowrd is empty");
-			return false;
-		}
-		
-		else if (id_len <8)
-		{
-			alert("Password must be more than 8 characters");
-			return false;
-		}
-		
-		else 
-			return true;
-	}
-	
-	function pass2_validation(id,idCheck)
-	{
-		if(id.value == idCheck)
-		{
-			return true;
-		}
-		
-		else 
-		{
-			alert("Passwords don't match");
-			return false;
-		}
-	}
-	
-	function name_validation(name)
-	{
-		var legal = /^[A-Za-z]+$/;
-		if(name.value.match(legal))
-		{
-			return true;
-		}
-		else
-		{
-			alert("First or Last name incorrect");
-			return false;
-		}
-	}
-	
-	function email_validation(uEmail)
-	{
-		var format = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-		if (uEmail.value.match(format))
-		{
-			return true;
-		}
-		else 
-		{
-			alert("Email address is invalid");
-			return false;
-		}
-	}
-	
-	function phone_validation(uPhone)
-	{
-		var phormat = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-		if(uPhone.match(phormat))
-		{
-			return true;
-		}
-		else 
-		{
-			alert("Enter the phone number with digits in this form: XXX XXX XXXX");
-			return false;
-		}
-	}
-	</script>
 </head>
 
-<body onload="document.registration.userName.focus();">
+<body>
     <header>
         <div class="top">
             <a class="logo" href="index.html">CapellaVolunteers<span class="dotcom">.org</span></a>
@@ -175,36 +29,38 @@
         <form action="#">
             <label for="userName">Username:</label>
             <input type="text" id = "userName" name="userName" placeholder="Enter your Username" />
-			<a id = uError /> 
+			<a id="uError"></a> 
  <p>
             <label for="Password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Enter your Password" />
-			<a id = pError /> 
+			<a id="pError"></a> 
  <p>
             <label for="passwordVerify">Verify your Password:</label>		
             <input type="password" id="passwordVerify" name="passwordVerify" placeholder="Enter in your Password again" />
-			<a id = vError /> 
+			<a id="vError"></a> 
  <p>         
 		    <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" placeholder="Enter your First Name" />
-			<a id = fError /> 
+			<a id="fError"></a> 
  <p>
             <label for="hostName">Last Name:</label>
             <input type="text" id="lastName" name="lastName" placeholder="Enter your Last Name" /> 
-			<a id = lError /> 
+			<a id="lError"></a> 
  <p>		
             <label for="email">Email:</label>
             <input type="text" id="email" name="email" placeholder="Enter your Email Address" />
-			<a id = eError /> 
+			<a id="eError"></a> 
  <p>			
 			<label for="phoneNumber">Phone Number </label>
             <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter your Phone Number" />
-			<a id = nError /> 
+			<a id="nError"></a> 
  <p>
 			<label for="signUpNewsletter">Sign up for newsletter:</label>
-			<input type="radio"  name="signUpNewsletter" value="Yes" > Yes 
-			<input type="radio"  name="signUpNewsletter" value="No"> No
-			<a id = rError /> 
+			<input type="radio" id="Yes" name="signUpNewsletter" value="Yes">
+	 		<labal for="Yes">Yes</label>
+			<input type="radio" id="No" name="signUpNewsletter" value="No">
+	 		<labal for="No">No</label><br>
+			<a id="rError"></a> 
  <p>
             <button type="button" id = "Submit" onclick ="MyFunction()"> Next Step  </button> 
         </form>
@@ -219,6 +75,8 @@
 					var phoneVal = /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/ ;
 					var outError = false; 
 					
+					console.log("Resetting errors");
+			
 					document.getElementById("uError").innerHTML = "";
 					document.getElementById("pError").innerHTML = "";
 					document.getElementById("vError").innerHTML = "";
@@ -228,6 +86,8 @@
 					document.getElementById("nError").innerHTML = "";// number error = nError p error take
 					document.getElementById("rError").innerHTML = "";
 					// resets my error 
+			
+					console.log("Errors reset");
 					
 					var uName     = document.getElementById("userName").value;
 					var password  = document.getElementById("password").value;
@@ -238,29 +98,31 @@
 					var pNumber   = document.getElementById("phoneNumber").value;
 					// the fields that change 
 					
+					console.log("Variables recorded");
+			
 					if(!(uName.match(letters))) // check if only letter and  numbers
 					{
-						document.getElementById("uError").innerHTML = "ERROR";
+						document.getElementById("uError").innerHTML = "uERROR";
 						outError = true;
 					}
 					if(password.length < 8) // Check if password longer than 8
 					{
-						document.getElementById("pError").innerHTML = "ERROR";
+						document.getElementById("pError").innerHTML = "pERROR";
 						outError = true;
 					}
 					if(password != vPassword) // check if verification is identical
 					{
-						document.getElementById("vError").innerHTML = "ERROR";
+						document.getElementById("vError").innerHTML = "vERROR";
 						outError = true;
 					}
-					if (!(emailVal.test(email)))// check valid email 
+					if (!(emailVal.test(email)))// check for valid email structure with @ and . in address
 					{
-						document.getElementById("eError").innerHTML = "ERROR";
+						document.getElementById("eError").innerHTML = "eERROR";
 						outError = true;
 					}
-					if (!(phoneVal.test(pNumber)))// check valid email 
+					if (!(phoneVal.test(pNumber)))// check for valid phone number in (123)456-7890 format
 					{
-						document.getElementById("nError").innerHTML = "ERROR";
+						document.getElementById("nError").innerHTML = "nERROR";
 						outError = true;
 					}
 
@@ -274,16 +136,15 @@
 						// checks checked
 					if ((nLetter != "Yes") && (nLetter != "No"))// error if no box is checked
 					{
-						document.getElementById("rError").innerHTML = "ERROR";
+						document.getElementById("rError").innerHTML = "rERROR";
 						outError = true;
 					}
 					// validates if a box is checked no null 
 					var output = "Hello ";			
-				if (outError == true)
-					output = "ERROR"; 			
-				else{
-			
-                    output += fName;
+				if (outError == true) {
+					output = "ERROR";
+				}
+				else { 	output += fName;
 					output +=  " "; 
 					output += lName ;
 					output += "<br>" ;
@@ -296,7 +157,7 @@
 					output += "Verify against: ";
 					output += vPassword;
 					output += "<br>" ;
-					output += "Email: "
+					output += "Email: ";
 					output += email ;
 					output += "<br>" ;
 					output += "Phone Number: ";
@@ -306,9 +167,8 @@
 					output += nLetter ;
 				}	
                    document.getElementById("demo").innerHTML = output;
-				
-				}
-		</script>
+		}
+	</script>
     <footer>This events site is for IT-FP3215 tasks.
     </footer>
 </body>
