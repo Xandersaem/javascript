@@ -292,9 +292,10 @@
 			}
 					// validates if a box is checked no null 
 			var output = "Hello ";			
-			if (outError == true)
-				output = "Please correct all discrepancies above. Once fixed, press the button again to re-submit."; 			
-			else{
+			if (outError == true) {
+				output = "Please correct all discrepancies above. Once fixed, press the button again to re-submit.";
+			}				
+			else {
 				setCookie("userName", uName, 365);
 				setCookie("password", password, 365);
 				setCookie("passwordVerify", vPassword, 365);
