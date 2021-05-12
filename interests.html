@@ -147,16 +147,13 @@
 				return false;
 			}
 			else {
-				console.log(checkBoxes[0].checked);
-				console.log(checkBoxes[1].checked);
-				console.log(checkBoxes[2].checked);
-				if( checkBoxes[0].checked) {
+				if( checkBoxes[0].checked == true) {
 					setCookie("interest1", check1, 365);
 				}
-				if( checkBoxes[1].checked) {
+				if( checkBoxes[1].checked == true) {
 					setCookie("interest2", check2, 365);
 				}
-				if( checkBoxes[2].checked) {
+				if( checkBoxes[2].checked == true) {
 					setCookie("interest3", check3, 365);
 				}
 				setCookie("newsletter", nLetter, 365);
