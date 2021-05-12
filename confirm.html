@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
 
-<body>
+<body onload="populateFields()">
     <header>
         <div class="top">
             <a class="logo" href="index.html">CapellaVolunteers<span class="dotcom">.org</span></a>
@@ -78,8 +78,6 @@
 			document.getElementById("uName") = getCookie("userName");
 		
 		}
-		
-		window.addEventListener('load', populateFields() { console.log("Run when the page loads."); });
 
 	</script>
 
