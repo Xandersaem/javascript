@@ -77,7 +77,9 @@
 			var emailVal = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 			var phoneVal = /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/ ;
 			var outError = false; 
-					
+			
+			console.log("I'm firing inside MyFunction");
+			
 			document.getElementById("uError").innerHTML = "";
 			document.getElementById("pError").innerHTML = "";
 			document.getElementById("vError").innerHTML = "";
@@ -127,6 +129,8 @@
 					"Phone number is not valid. Please enter a valid number in (123)456-7890 format.";
 				outError = true;
 			}
+			
+			console.log("I'm past verification");
 /*
 			var newsletter = document.getElementsByName("signUpNewsletter");
 			// get radio dial 
@@ -156,8 +160,11 @@
 				setCookie("lastName", lName, 365);
 				setCookie("email", email, 365);
 				setCookie("phoneNumber", pNumber, 365);
+				console.log("I'm in the else statement!");
 			}	
             document.getElementById("demo").innerHTML = output;
+			
+			console.log("Done executing.");
 		}
 	</script>
     
