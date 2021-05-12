@@ -78,8 +78,6 @@
 			var phoneVal = /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/ ;
 			var outError = false; 
 			
-			console.log("I'm firing inside MyFunction");
-			
 			document.getElementById("uError").innerHTML = "";
 			document.getElementById("pError").innerHTML = "";
 			document.getElementById("vError").innerHTML = "";
@@ -87,7 +85,6 @@
 			document.getElementById("lError").innerHTML = "";
 			document.getElementById("eError").innerHTML = "";
 			document.getElementById("nError").innerHTML = "";// number error = nError p error take
-			// document.getElementById("rError").innerHTML = "";
 			// resets my error 
 					
 			var uName     = document.getElementById("userName").value;
@@ -129,26 +126,7 @@
 					"Phone number is not valid. Please enter a valid number in (123)456-7890 format.";
 				outError = true;
 			}
-			
-			console.log("I'm past verification");
-/*
-			var newsletter = document.getElementsByName("signUpNewsletter");
-			// get radio dial 
-					
-			for(i = 0; i < newsletter.length; i++) {
-				if(newsletter[i].checked)
-					var nLetter = newsletter[i].value;
-			}
-					// checks checked
-			if ((nLetter != "Yes") && (nLetter != "No"))// error if no box is checked
-			{
-				document.getElementById("rError").innerHTML = 
-					"Please select a box. Would you like our newsletter?";
-				outError = true;
-			}
-					// validates if a box is checked no null 
-*/
-			// var output = "Hello ";			
+		
 			if (outError == true) {
 				output = "Please correct all discrepancies above. Once fixed, press the button again to re-submit.";
 				return false;
@@ -162,12 +140,10 @@
 				setCookie("email", email, 365);
 				setCookie("phoneNumber", pNumber, 365);
 				console.log("I'm in the else statement!");
-				return false;
+				return true;
 			}	
-            document.getElementById("demo").innerHTML = output;
 			
-			console.log("Done executing.");
-			return false;
+			return false; //Here in case validation fails. Prevents form submission.
 		}
 	</script>
     
