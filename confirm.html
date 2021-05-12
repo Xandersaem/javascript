@@ -2,7 +2,7 @@
 <html lang="en-US">
 
 <head>
-    <title>Interests Page</title>
+    <title>Confirmation</title>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
 
@@ -51,9 +51,8 @@
 			</div>
     </section>
 
-    <footer>This events site is for IT-FP3215 tasks.
-    </footer>
-	<script type="text/javascript">
+	<script>
+		
 		function getCookie(cname) 
 		{
 			var name = cname + "=";
@@ -74,15 +73,18 @@
 			}
 		return "";
 		}
-
-		document.getElementById("uid").innerHTML = getCookie("uName");
-		document.getElementById("passid").innerHTML = getCookie("passID");
-		document.getElementById("fname").innerHTML = getCookie("fName");
-		document.getElementById("lname").innerHTML = getCookie("lName");
-		document.getElementById("uemail").innerHTML = getCookie("userEmail");
-		document.getElementById("phn").innerHTML = getCookie("userPhone");
+		
+		function populateFields() {
+			document.getElementById("uName") = getCookie("userName");
+		
+		}
+		
+		window.addEventListener('load', populateFields() { console.log("Run when the page loads."); });
 
 	</script>
+
+    <footer>This events site is for IT-FP3215 tasks.
+    </footer>
 </body>
 
 </html>
