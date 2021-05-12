@@ -27,29 +27,7 @@
     </header>
     <section id="pageFormContent">
 
-            <!--
-			Process content to display content on screen
-			
-			-->
-			<div>User ID:
-			<span id="uName"></span>
-			</div>
-			<div>Password:
-			<span id="passID"></span>
-			</div>
-			<div>Firstname:
-			<span id="fName"></span>
-			</div>
-			<div>Lastname:
-			<span id="lName"></span>
-			</div>
-			<div>Email:
-			<span id="userEmail"></span>
-			</div>
-			<div>Phone:
-			<span id="userPhone"></span>
-			</div>
-			
+			<!-- Container to display cookie information -->
 			<div id="displayCookie"></div>
     </section>
 
@@ -76,12 +54,10 @@
 		return "";
 		}
 		
-		function populateFields() {
-			document.getElementById("uName").innerHTML = getCookie("userName");
+		//Displays cookie information into div container
+		document.getElementById("displayCookie").innerHTML=listCookies();
 		
-		}
-		
-		document.getElementById("displayCookie").innerHTML=listCookies()
+		//Runs through and adds cookie information to string for output
 		function listCookies() {
 			var theCookies = document.cookie.split(';');
 			var aString = '';
