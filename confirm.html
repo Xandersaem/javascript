@@ -49,6 +49,8 @@
 			<div>Phone:
 			<span id="userPhone"></span>
 			</div>
+			
+			<div id="displayCookie"></div>
     </section>
 
 	<script>
@@ -77,6 +79,16 @@
 		function populateFields() {
 			document.getElementById("uName").innerHTML = getCookie("userName");
 		
+		}
+		
+		document.getElementById('displayCookie').innerHTML=listCookies()
+		function listCookies() {
+			var theCookies = document.cookie.split(';');
+			var aString = '';
+			for (var i = 1 ; i <= theCookies.length; i++) {
+				aString += i + ' ' + theCookies[i-1] + "\n";
+			}
+			return aString;
 		}
 
 	</script>
