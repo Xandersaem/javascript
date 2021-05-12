@@ -29,38 +29,38 @@
 	<p>A few more questions...
 	
     <section id="pageForm">
-        <form method="#" action="confirm.html">
+        <form method="#" action="confirm.html" onsubmit="">
 			
-            <!--
-			Include other form fields here
-			
-			-->
-            <input type="hidden" name="userName"/>
-            <input type="hidden" name="password"/>
-            <input type="hidden" name="passwordVerify" />
-            <input type="hidden" name="firstName" />
-            <input type="hidden" name="lastName" />
-            <input type="hidden" name="email"/>
-            <input type="hidden" name="lastName" />
-			<input type="hidden" name="signUpNewsletter"/ >
+			<!-- Form fields from registration.html -->
+            <input type="hidden" name="userName" value="" />
+            <input type="hidden" name="password" value="" />
+            <input type="hidden" name="passwordVerify" value="" />
+            <input type="hidden" name="firstName" value="" />
+            <input type="hidden" name="lastName" value="" />
+            <input type="hidden" name="email" value="" />
+            <input type="hidden" name="phoneNumber" value="" />
 			
 			<p>What are you most interested in volunteering for?<br>
-			<input type="checkbox" id="interest1" name="interest1" value="Cooking">
+			<input type="checkbox" class="interests" id="interest1" name="interest1" value="Cooking">
 			<label for="interest1"> I like to cook! </label><br>
 			
-			<input type="checkbox" id="interest2" name="interest2" value="Recycling">
+			<input type="checkbox" class="interests" id="interest2" name="interest2" value="Recycling">
 			<label for="interest2"> Recycling is my calling! </label><br>
 			
-			<input type="checkbox" id="interest3" name="interest3" value="Animals">
-			<label for="interest3"> Animals are my best buds! </label><br><br>
+			<input type="checkbox" class="interests" id="interest3" name="interest3" value="Animals">
+			<label for="interest3"> Animals are my best buds! </label><br>
+			<a id="cError" />
+			<br>
 			
 			<label for="signUpNewsletter">Sign up for newsletter:</label>
 			<input type="radio"  name="signUpNewsletter" value="Yes" > Yes 
 			<input type="radio"  name="signUpNewsletter" value="No"> No
-			<br><br>
+			<br>
+			<a id="rError" /> 
+			<br>
 			
 			<p>Any comments for us?<br>
-			<textarea rows="3" cols="40" name="comment" form="pageForm">
+			<textarea rows="3" cols="40" id ="comment" name="comment" form="pageForm">
 			Enter text here...</textarea><br><br>
 			
 			<label for="referSource">Who referred you to us?</label>
@@ -95,6 +95,68 @@
 			}
 			return "";
 		}
+		
+		function validateThis() {
+		
+			var outError = false;
+			
+			document.getElementById("cError").innerHTML = "";
+			document.getElementById("rError").innerHTML = "";
+			
+			var check1 = document.getElementById("interest1").value;
+			var check2 = document.getElementById("interest2").value;
+			var check3 = document.getElementById("interest3").value;
+			
+			
+			var newsletter = document.getElementsByName("signUpNewsletter");
+			// get radio dial 
+				
+			for(i = 0; i < newsletter.length; i++) 
+			{
+				if(newsletter[i].checked){
+					var nLetter = newsletter[i].value;
+				}
+			}
+				// checks checked
+			if ((nLetter != "Yes") && (nLetter != "No"))// error if no box is checked
+			{
+				document.getElementById("rError").innerHTML = 
+				"Please select a box. Would you like our newsletter?";
+				outError = true;
+			}
+			
+			//Checks if the interests boxes are filled out
+			var checkBoxes = document.getElementsByClassName('interests');
+			var isChecked = false;
+				
+			for (var i = 0; i < checkBoxes.length; i++) {
+				if (checkBoxes[i].checked) {
+					isChecked = true;
+				}
+			}
+			if (isChecked == false) {
+				outError = true;
+				document.getElementById("cError").innerHTML = 
+				"Please select at least one checkbox!";
+			}
+			
+			// Stop form submission if there's a problem
+			if (outError = true) {
+				return false;
+			}
+			else {
+				setCookie("interest1", check1, 365);
+				setCookie("interest2", check2, 365);
+				setCookie("interest3", check3, 365);
+				setCookie("newsletter", nLetter, 365);
+				setCookie("comments", document.getElementById("comment").value, 365);
+				setCookie("referredby", document.getElementById("referSource").value, 365);
+				return false;
+			}
+			
+			return false;
+		}
+		
 	</script>
 
     <footer>This events site is for IT-FP3215 tasks.
