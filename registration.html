@@ -4,9 +4,10 @@
 <head>
     <title>Invitation Page</title>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+
 </head>
 
-<body>
+<body onload="document.registration.userName.focus();">
     <header>
         <div class="top">
             <a class="logo" href="index.html">CapellaVolunteers<span class="dotcom">.org</span></a>
@@ -26,7 +27,7 @@
         </nav>
     </header>
     <section id="pageForm">
-        <form action="#">
+        <form method="#" action="interests.html" onsubmit="return MyFunction()">
             <label for="userName">Username:</label>
             <input type="text" id = "userName" name="userName" placeholder="Enter your Username" />
 			<a id = uError /> 
@@ -55,123 +56,113 @@
             <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter your Phone Number" />
 			<a id = nError /> 
  <p>
-			<label for="signUpNewsletter">Sign up for newsletter:</label>
-			<input type="radio"  name="signUpNewsletter" value="Yes" > Yes 
-			<input type="radio"  name="signUpNewsletter" value="No"> No
-			<br>
-			<a id = rError /> 
- <p>
-            <button type="button" id = "Submit" onclick ="MyFunction()"> Next Step  </button> 
+            <input type="submit" id="Submit" />
         </form>
 
 			<p id="demo"></p>
     </section>
-<script>
+	
+	<script>		
+	
+		function setCookie(cname, cvalue, exdays) {
+			var d = new Date();
+			d.setTime(d.getTime() + (exdays*24*60*60*1000));
+			var expires = "expires="+ d.toUTCString();
+			document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
+		
 		function MyFunction() {
 
-					var letters = /^[0-9a-zA-Z]+$/;
-					var emailVal = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-					var phoneVal = /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/ ;
-					var outError = false; 
+			var letters = /^[0-9a-zA-Z]+$/;
+			var emailVal = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			var phoneVal = /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/ ;
+			var outError = false; 
 					
-					document.getElementById("uError").innerHTML = "";
-					document.getElementById("pError").innerHTML = "";
-					document.getElementById("vError").innerHTML = "";
-					document.getElementById("fError").innerHTML = "";
-					document.getElementById("lError").innerHTML = "";
-					document.getElementById("eError").innerHTML = "";
-					document.getElementById("nError").innerHTML = "";// number error = nError p error take
-					document.getElementById("rError").innerHTML = "";
-					// resets my error 
+			document.getElementById("uError").innerHTML = "";
+			document.getElementById("pError").innerHTML = "";
+			document.getElementById("vError").innerHTML = "";
+			document.getElementById("fError").innerHTML = "";
+			document.getElementById("lError").innerHTML = "";
+			document.getElementById("eError").innerHTML = "";
+			document.getElementById("nError").innerHTML = "";// number error = nError p error take
+			document.getElementById("rError").innerHTML = "";
+			// resets my error 
 					
-					var uName     = document.getElementById("userName").value;
-					var password  = document.getElementById("password").value;
-					var vPassword = document.getElementById("passwordVerify").value;
-					var fName     = String (document.getElementById("firstName").value);// cast to String
-					var lName     = String (document.getElementById("lastName").value);// cast to String
-					var email     = document.getElementById("email").value;
-					var pNumber   = document.getElementById("phoneNumber").value;
-					// the fields that change 
-					
-					if(!(uName.match(letters))) // check if only letter and  numbers
-					{
-						document.getElementById("uError").innerHTML = 
-						"Username is invalid. Please choose a name containing only letters and numbers.";
-						outError = true;
-					}
-					if(password.length < 8) // Check if password longer than 8
-					{
-						document.getElementById("pError").innerHTML = 
-						"Password must be longer than 8 characters.";
-						outError = true;
-					}
-					if(password != vPassword) // check if verification is identical
-					{
-						document.getElementById("vError").innerHTML = 
-						"Passwords do not match. Please re-enter your desired password.";
-						outError = true;
-					}
-					if (!(emailVal.test(email)))// check valid email 
-					{
-						document.getElementById("eError").innerHTML = 
-						"Email is not in valid format. Please enter a valid email with format xxx@xxx.xxx";
-						outError = true;
-					}
-					if (!(phoneVal.test(pNumber)))// check valid email 
-					{
-						document.getElementById("nError").innerHTML = 
-						"Phone number is not valid. Please enter a valid number in (123)456-7890 format.";
-						outError = true;
-					}
-
-					var newsletter = document.getElementsByName("signUpNewsletter");
-					// get radio dial 
-					
-					 for(i = 0; i < newsletter.length; i++) {
-						if(newsletter[i].checked)
-							var nLetter = newsletter[i].value;
-					}
-						// checks checked
-					if ((nLetter != "Yes") && (nLetter != "No"))// error if no box is checked
-					{
-						document.getElementById("rError").innerHTML = 
-						"Please select a box. Would you like our newsletter?";
-						outError = true;
-					}
-					// validates if a box is checked no null 
-					var output = "Hello ";			
-				if (outError == true)
-					output = "Please correct all discrepancies above. Once fixed, press the button again to re-submit.";		
-				else{
-			
-                    output += fName;
-					output +=  " "; 
-					output += lName ;
-					output += "<br>" ;
-					output += "Your Username: ";
-					output += uName ;
-					output += "<br>" ;
-					output += "Your Password: ";
-					output += password;
-					output += "<br>" ;
-					output += "Verify against: ";
-					output += vPassword;
-					output += "<br>" ;
-					output += "Email: "
-					output += email ;
-					output += "<br>" ;
-					output += "Phone Number: ";
-				    output += pNumber ;
-					output += "<br>" ;
-					output += "Newsletter: ";
-					output += nLetter ;
-				}	
-                   document.getElementById("demo").innerHTML = output;
+			var uName     = document.getElementById("userName").value;
+			var password  = document.getElementById("password").value;
+			var vPassword = document.getElementById("passwordVerify").value;
+			var fName     = String (document.getElementById("firstName").value);// cast to String
+			var lName     = String (document.getElementById("lastName").value);// cast to String
+			var email     = document.getElementById("email").value;
+			var pNumber   = document.getElementById("phoneNumber").value;
+			// the fields that change 
 				
-				}
-		</script>
-    <footer>This events site is for IT-FP3215 tasks.
-    </footer>
+			if(!(uName.match(letters))) // check if only letter and  numbers
+			{
+				document.getElementById("uError").innerHTML = 
+					"Username is invalid. Please choose a name containing only letters and numbers.";
+				outError = true;
+			}
+			if(password.length < 8) // Check if password longer than 8
+			{
+				document.getElementById("pError").innerHTML = 
+					"Password must be longer than 8 characters.";
+				outError = true;
+			}
+			if(password != vPassword) // check if verification is identical
+			{
+				document.getElementById("vError").innerHTML = 
+					"Passwords do not match. Please re-enter your desired password.";
+				outError = true;
+			}
+			if (!(emailVal.test(email)))// check valid email 
+			{
+				document.getElementById("eError").innerHTML = 
+					"Email is not in valid format. Please enter a valid email with format xxx@xxx.xxx";
+				outError = true;
+			}
+			if (!(phoneVal.test(pNumber)))// check valid email 
+			{
+				document.getElementById("nError").innerHTML = 
+					"Phone number is not valid. Please enter a valid number in (123)456-7890 format.";
+				outError = true;
+			}
+
+			var newsletter = document.getElementsByName("signUpNewsletter");
+			// get radio dial 
+					
+			for(i = 0; i < newsletter.length; i++) {
+				if(newsletter[i].checked)
+					var nLetter = newsletter[i].value;
+			}
+					// checks checked
+			if ((nLetter != "Yes") && (nLetter != "No"))// error if no box is checked
+			{
+				document.getElementById("rError").innerHTML = 
+					"Please select a box. Would you like our newsletter?";
+				outError = true;
+			}
+					// validates if a box is checked no null 
+			var output = "Hello ";			
+			if (outError == true) {
+				output = "Please correct all discrepancies above. Once fixed, press the button again to re-submit.";
+				return false;
+			}				
+			else {
+				setCookie("userName", uName, 365);
+				setCookie("password", password, 365);
+				setCookie("passwordVerify", vPassword, 365);
+				setCookie("firstName", fName, 365);
+				setCookie("lastName", lName, 365);
+				setCookie("email", email, 365);
+				setCookie("phoneNumber", pNumber, 365);
+			}	
+            document.getElementById("demo").innerHTML = output;
+			return true;
+		}
+	</script>
+    
+	<footer>This events site is for IT-FP3215 tasks.</footer>
 </body>
 
 </html>
