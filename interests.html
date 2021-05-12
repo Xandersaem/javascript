@@ -142,11 +142,8 @@
 				"Please select at least one checkbox!";
 			}
 			
-			console.log("Got here.");
 			// Stop form submission if there's a problem
 			if (outError == true) {
-				console.log("There's a problem, boss.");
-				console.log(isChecked);
 				return false;
 			}
 			else {
@@ -156,10 +153,10 @@
 				setCookie("newsletter", nLetter, 365);
 				setCookie("comments", document.getElementById("comment").value, 365);
 				setCookie("referredby", document.getElementById("referSource").value, 365);
-				console.log("Set the cookies!");
-				return false;
+				return true;
 			}
 			
+			//Here in case all other returns are somehow missed
 			return false;
 		}
 		
