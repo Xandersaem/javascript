@@ -7,7 +7,7 @@
 
 </head>
 
-<body onload="document.registration.userName.focus();">
+<body onload="document.getElementById("userName").focus();">
     <header>
         <div class="top">
             <a class="logo" href="index.html">CapellaVolunteers<span class="dotcom">.org</span></a>
@@ -27,7 +27,7 @@
         </nav>
     </header>
     <section id="pageForm">
-        <form method="#" action="interests.html">
+        <form method="#" action="interests.html" onsubmit="return MyFunction()">
             <label for="userName">Username:</label>
             <input type="text" id = "userName" name="userName" placeholder="Enter your Username" />
 			<a id = uError /> 
@@ -56,7 +56,7 @@
             <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter your Phone Number" />
 			<a id = nError /> 
  <p>
-            <button type="button" id="Submit" onclick="MyFunction()"> Submit! </button>
+            <input type="submit" id="Submit" />
         </form>
 
 			<p id="demo"></p>
@@ -150,7 +150,8 @@
 */
 			var output = "Hello ";			
 			if (outError == true) {
-				output = "Please correct all discrepancies above. Once fixed, press the button again to re-submit.";;
+				output = "Please correct all discrepancies above. Once fixed, press the button again to re-submit.";
+				return false;
 			}				
 			else {
 				setCookie("userName", uName, 365);
@@ -161,10 +162,12 @@
 				setCookie("email", email, 365);
 				setCookie("phoneNumber", pNumber, 365);
 				console.log("I'm in the else statement!");
+				return false;
 			}	
             document.getElementById("demo").innerHTML = output;
 			
 			console.log("Done executing.");
+			return false;
 		}
 	</script>
     
