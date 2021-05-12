@@ -147,9 +147,15 @@
 				return false;
 			}
 			else {
-				setCookie("interest1", check1, 365);
-				setCookie("interest2", check2, 365);
-				setCookie("interest3", check3, 365);
+				if( checkBoxes[1].isChecked) {
+					setCookie("interest1", check1, 365);
+				}
+				if( checkBoxes[2].isChecked) {
+					setCookie("interest2", check2, 365);
+				}
+				if( checkBoxes[3].isChecked) {
+					setCookie("interest3", check3, 365);
+				}
 				setCookie("newsletter", nLetter, 365);
 				setCookie("comments", document.getElementById("comment").value, 365);
 				setCookie("referredby", document.getElementById("referSource").value, 365);
