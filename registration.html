@@ -56,7 +56,7 @@
             <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter your Phone Number" />
 			<a id = nError /> 
  <p>
-            <input type="button" id="Submit" onclick="MyFunction()"/>
+            <button type="button" id="Submit" onclick="MyFunction()"> Submit! </button>
         </form>
 
 			<p id="demo"></p>
@@ -146,8 +146,7 @@
 */
 			var output = "Hello ";			
 			if (outError == true) {
-				output = "Please correct all discrepancies above. Once fixed, press the button again to re-submit.";
-				return false;
+				output = "Please correct all discrepancies above. Once fixed, press the button again to re-submit.";;
 			}				
 			else {
 				setCookie("userName", uName, 365);
@@ -157,7 +156,6 @@
 				setCookie("lastName", lName, 365);
 				setCookie("email", email, 365);
 				setCookie("phoneNumber", pNumber, 365);
-				return true;
 			}	
             document.getElementById("demo").innerHTML = output;
 		}
