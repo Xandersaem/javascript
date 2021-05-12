@@ -27,7 +27,7 @@
         </nav>
     </header>
     <section id="pageForm">
-        <form method="#" action="interests.html" onsubmit="return MyFunction()">
+        <form method="#" action="interests.html">
             <label for="userName">Username:</label>
             <input type="text" id = "userName" name="userName" placeholder="Enter your Username" />
 			<a id = uError /> 
@@ -56,7 +56,7 @@
             <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter your Phone Number" />
 			<a id = nError /> 
  <p>
-            <input type="submit" id="Submit" />
+            <input type="submit" id="Submit" onclick="return MyFunction()"/>
         </form>
 
 			<p id="demo"></p>
@@ -127,7 +127,7 @@
 					"Phone number is not valid. Please enter a valid number in (123)456-7890 format.";
 				outError = true;
 			}
-
+/*
 			var newsletter = document.getElementsByName("signUpNewsletter");
 			// get radio dial 
 					
@@ -143,6 +143,7 @@
 				outError = true;
 			}
 					// validates if a box is checked no null 
+*/
 			var output = "Hello ";			
 			if (outError == true) {
 				output = "Please correct all discrepancies above. Once fixed, press the button again to re-submit.";
